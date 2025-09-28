@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Typography, Card, List, Tag, Progress, Divider, Space } from 'antd'
+import { Modal, Typography, Card, List, Tag, Progress, Space } from 'antd'
 import { TrophyOutlined, ClockCircleOutlined, UserOutlined } from '@ant-design/icons'
 import { useAppSelector } from '../hooks/redux'
 
@@ -88,7 +88,7 @@ const CandidateDetailModal: React.FC<CandidateDetailModalProps> = ({
               <Title level={2} style={{ color: getScoreColor(candidate.totalScore) }}>
                 {candidate.totalScore}/60
               </Title>
-              <Tag color={getScoreColor(candidate.totalScore)} size="large">
+              <Tag color={getScoreColor(candidate.totalScore)}>
                 {getScoreLabel(candidate.totalScore)}
               </Tag>
             </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Upload, Button, Input, Form, Typography, Progress, message, Space } from 'antd'
-import { UploadOutlined, SendOutlined } from '@ant-design/icons'
+import { Card, Button, Input, Form, Typography, message, Space } from 'antd'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { 
   setCandidate, 
@@ -11,7 +10,6 @@ import {
   updateAnswer, 
   updateScore, 
   setTotalScore, 
-  updateTimer, 
   addChatMessage 
 } from '../store/slices/interviewSlice'
 import { addCandidate } from '../store/slices/candidateSlice'

@@ -107,7 +107,7 @@ const interviewSlice = createSlice({
         timestamp: new Date().toISOString()
       })
     },
-    resetInterview: (state) => {
+    resetInterview: () => {
       return { ...initialState }
     },
     restoreSession: (state, action: PayloadAction<Partial<InterviewState>>) => {

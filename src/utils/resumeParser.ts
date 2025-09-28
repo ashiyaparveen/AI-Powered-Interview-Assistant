@@ -9,7 +9,7 @@ export interface ParsedResume {
 }
 
 export const parsePDF = async (file: File): Promise<ParsedResume> => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     // For now, we'll provide a simple fallback for PDF files
     // In a production app, you'd want to use a proper browser-compatible PDF parser
     resolve({ 
@@ -23,7 +23,7 @@ export const parsePDF = async (file: File): Promise<ParsedResume> => {
 }
 
 export const parseDOCX = async (file: File): Promise<ParsedResume> => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const reader = new FileReader()
     reader.onload = async () => {
       try {
@@ -32,10 +32,12 @@ export const parseDOCX = async (file: File): Promise<ParsedResume> => {
         const parsed = extractInfo(result.value)
         resolve({ text: result.value, fileName: file.name, ...parsed })
       } catch (error) {
-        reject(new Error('Failed to parse DOCX file'))
+        throw new Error('Failed to parse DOCX file')
       }
     }
-    reader.onerror = () => reject(new Error('Failed to read DOCX file'))
+    reader.onerror = () => {
+      throw new Error('Failed to read DOCX file')
+    }
     reader.readAsArrayBuffer(file)
   })
 }
@@ -81,3 +83,4 @@ export const validateFileType = (file: File): boolean => {
 export const validateFileSize = (file: File, maxSizeMB: number = 5): boolean => {
   return file.size <= maxSizeMB * 1024 * 1024
 }
+

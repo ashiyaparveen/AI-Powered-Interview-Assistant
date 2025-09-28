@@ -17,7 +17,7 @@ const persistConfig = {
     // Clear old data that might have duplicate keys
     if (state && state.interview && state.interview.chatHistory) {
       // Generate new unique IDs for existing chat messages
-      state.interview.chatHistory = state.interview.chatHistory.map((msg: any, index: number) => ({
+      state.interview.chatHistory = state.interview.chatHistory.map((msg: any) => ({
         ...msg,
         id: generateUniqueId()
       }))

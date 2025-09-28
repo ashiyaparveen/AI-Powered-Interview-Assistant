@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Progress, Typography } from 'antd'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { updateTimer, nextQuestion, updateAnswer, updateScore } from '../store/slices/interviewSlice'
+import { updateTimer } from '../store/slices/interviewSlice'
 
 const { Text } = Typography
 

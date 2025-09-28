@@ -1,6 +1,6 @@
 import { Question } from '../store/slices/interviewSlice'
 
-export const generateQuestions = (role: string = 'Full Stack React/Node Developer'): Question[] => {
+export const generateQuestions = (): Question[] => {
   const questions: Question[] = [
     // All questions now have 30 seconds each
     {
